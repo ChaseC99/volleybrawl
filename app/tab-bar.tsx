@@ -32,8 +32,8 @@ export default function TabBar() {
                     icon={<SportsVolleyballIcon />}
                 />
                 <BottomNavigationAction
-                    label="Profile"
-                    value="/profile"
+                    label="Me"
+                    value="/me"
                     icon={<AccountCircleIcon />}
                 />
             </BottomNavigation>
