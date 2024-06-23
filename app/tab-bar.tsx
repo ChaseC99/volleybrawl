@@ -27,7 +27,7 @@ export default function TabBar() {
                     icon={<CalendarMonthIcon />}
                 />
                 <BottomNavigationAction
-                    label="Score"
+                    label="Volleybrawl"
                     value="/"
                     icon={<SportsVolleyballIcon />}
                 />
