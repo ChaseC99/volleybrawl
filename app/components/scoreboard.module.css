@@ -1,11 +1,11 @@
 .scoreboardContainer {
   display: flex;
   align-items: center;
-  height: 100vh;
+  height: calc(100vh - 56px);
   width: 100vw;
   padding: 20px;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: scroll;
   flex-direction: column;
 }
 

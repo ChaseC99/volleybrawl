@@ -1,20 +1,10 @@
 import React from 'react';
-
-type GameSet = {
-    team1Score: number;
-    team2Score: number;
-};
-
-type GameProps = {
-    team1Players: string[];
-    team2Players: string[];
-    sets: GameSet[];
-    court: number;
-};
+import { Game as GameProps } from '../types';
 
 export default function Game({ team1Players, team2Players, sets, court }: GameProps) {
     return (
         <tbody>
+            <tr style={{height: 50}}></tr>
             <tr style={{borderSpacing: "10px"}}>
                 <td colSpan={2}>Court {court}</td>
             </tr>

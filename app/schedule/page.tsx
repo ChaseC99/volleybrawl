@@ -1,34 +1,9 @@
 import Game from "../components/game";
+import { getGames } from "../data";
 
-export default function Schedule() {
-    const games = [
-        {
-            team1Players: ["Alice", "Bob", "Charlie"],
-            team2Players: ["Dave", "Eve", "Frank"],
-            sets: [
-                { team1Score: 21, team2Score: 19 },
-                { team1Score: 21, team2Score: 19 },
-            ],
-            court: 1
-        },
-        {
-            team1Players: ["Alice", "Bob", "Charlie"],
-            team2Players: ["Dave", "Eve", "Frank"],
-            sets: [
-                { team1Score: 21, team2Score: 19 },
-                { team1Score: 18, team2Score: 21 },
-                { team1Score: 15, team2Score: 13 },
-            ],
-            court: 2
-        },
-        {
-            team1Players: ["Alice", "Bob", "Charlie", "Doug", "Doug"],
-            team2Players: ["Dave", "Eve", "Frank"],
-            sets: [],
-            court: 3
-        },
-
-    ]
+export default async function Schedule() {
+    const games = await getGames();
+    
     return (
         <div>
             <table style={{borderCollapse: 'collapse', width: '100%', textAlign: 'center'}}>
