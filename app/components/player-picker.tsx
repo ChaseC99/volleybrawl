@@ -1,7 +1,6 @@
 "use client"
 
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import { on } from "events";
 import { useEffect, useState } from "react";
 import { getPlayers } from "../data";
 
@@ -35,7 +34,21 @@ export default function PlayerPicker({value, onChange}: PlayerPickerProps) {
                 onChange={handleChange}
                 value={value}
                 autoWidth
-
+                sx={{
+                    color: "white",
+                    '.MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(228, 219, 233, 0.25)',
+                    },
+                    '&.Mui-focused .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(228, 219, 233, 0.25)',
+                    },
+                    '&:hover .MuiOutlinedInput-notchedOutline': {
+                      borderColor: 'rgba(228, 219, 233, 0.25)',
+                    },
+                    '.MuiSvgIcon-root ': {
+                      fill: "white !important",
+                    }
+                }}
             >
                 { players.map(p => (
                     <MenuItem 

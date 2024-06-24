@@ -5,7 +5,7 @@ export default async function Schedule() {
     const games = await getGames();
     
     return (
-        <div>
+        <div style={{marginBottom: 100}}>
             <table style={{borderCollapse: 'collapse', width: '100%', textAlign: 'center'}}>
                 <thead>
                     <tr>

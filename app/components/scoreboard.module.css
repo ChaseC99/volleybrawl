@@ -13,12 +13,14 @@
   display: flex;
   justify-content: space-evenly;
   align-items: baseline;
+  text-align: center;
   width: 100%;
 }
 
 .teamName {
   font-size: 5vw;
   color: #f39c12;
+  width: 40%;
   margin-top: 10px;
   text-align: center;
   text-transform: uppercase;
@@ -51,6 +53,7 @@
 
 .vs {
   font-size: 5vw;
+  width: 10%;
   font-weight: bold;
   color: #e74c3c;
   white-space: nowrap;

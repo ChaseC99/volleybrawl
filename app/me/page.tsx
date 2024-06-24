@@ -6,7 +6,9 @@ import { Game as GameType } from "../types";
 import Game from "../components/game";
 
 export default function Me() {
-    const [player, setPlayer] = useState(localStorage.getItem("player") || "");
+    const [player, setPlayer] = useState(
+        typeof window !== 'undefined' ? localStorage.getItem("player") || "" : ""
+    );
     const [games, setGames] = useState<GameType[]>([]);
 
     // When the player name changes, 
@@ -17,7 +19,7 @@ export default function Me() {
     }, [player]);
 
     return (
-        <div>
+        <div style={{marginBottom: 100}}>
             <PlayerPicker value={player} onChange={setPlayer}/>
             <div>
                 <h2>Your Games</h2>
