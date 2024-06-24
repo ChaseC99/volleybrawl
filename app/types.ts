@@ -4,8 +4,11 @@ type GameSet = {
 };
 
 export type Game = {
+    team1Name: string;
+    team2Name: string;
     team1Players: string[];
     team2Players: string[];
     sets: GameSet[];
     court: number;
+    time?: string;
 };
