@@ -1,24 +1,32 @@
 import React from 'react';
+import styles from './game.module.css';
 import { Game as GameProps } from '../types';
 
-export default function Game({ team1Players, team2Players, sets, court }: GameProps) {
+export default function Game({ team1Players, team2Players, sets, court, time }: GameProps) {
+    // Filter out sets that are not yet played
+    sets = sets.filter(({ team1Score, team2Score }) => team1Score !== 0 || team2Score !== 0);
+
     return (
-        <tbody>
-            <tr style={{height: 50}}></tr>
-            <tr style={{borderSpacing: "10px"}}>
-                <td colSpan={2}>Court {court}</td>
-            </tr>
-            <tr>
-                <td style={{width: "50%"}}>{team1Players.join(", ")}</td>
-                <td style={{width: "50%"}}>{team2Players.join(", ")}</td>
-            </tr>
+        <div className={styles.game}>
+            <div className={styles.gameHeader}>
+                <span>Court {court}</span>
+                <span>{time?.toLowerCase()}</span>
+            </div>
+
+            <div className={styles.playersContainer}>
+                <div>{team1Players.join(", ")}</div>
+                <div>{team2Players.join(", ")}</div>
+            </div>
+            
+
             {sets.map(({ team1Score, team2Score }, i) => (
-                <tr key={i}>
-                    <td>{team1Score}</td>
-                    <td>{team2Score}</td>
-                </tr>
+                <div key={i} className={styles.scores}>
+                    <div>{team1Score}</div>
+                    -
+                    <div>{team2Score}</div>
+                </div>
             ))}
-        </tbody>
+        </div>
     );
 }
 

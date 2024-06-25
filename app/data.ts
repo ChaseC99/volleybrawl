@@ -1,26 +1,38 @@
 import { Game } from "./types";
 
-const GAMES_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vTu-qjstdMXdzsFt_6AKm-spImtZA02wt5dlkgE0c6OflhnZ7KNvDKC1T8mKDp3M3C3fN_nyYlaA45m/pub?gid=1316465651&single=true&output=csv';
+const GAMES_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=1316465651&single=true&output=csv';
+const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=586711085&single=true&output=csv';
 
-const mockPlayers: string[] = [ "Erik", "Constance", "Cole", "Alex S", "Hoang", "Kristi", "Chase", "Colina", "Ben", "Justine", "Ash", "Jacob", "Alex C", "Susan", "Frank", "Joshua", "Jackie", "Jeffrey", "Isabel", "Allison", "Tyler", "Vivian"];
+const players: string[] = [
+    "Alex", "Allison", "Ash", "Ben", "Cecilia", "Chase", "Colina", "Constance", "David", "Devin", "Edward", "Eugene", "Frank", "Garrick", "Grace", "Isabel", "Jackie", "Jaiveer", "Jeff", "Juan", "Justine", "Ray", "Susan", "Tara", "Tyler", "Will",
+];
+
 
 async function loadCSVData(url: string, ignoreHeader: boolean = true) {
     // Use fetch to get the CSV data
     const results = await fetch(url);
     const csvData = await results.text();
     
-    // Parse the CSV data
+    // Get the rows from the CSV data
     const rows = csvData.split('\n');
+
+    // Get the last updated time stamp
+    // This the last element in the header row
+    const lastUpdated = rows[0].split(',').pop();
 
     if (ignoreHeader) {
         // Ignore the first row (header)
         rows.shift();
     }
 
-    return rows;
+    return {rows, lastUpdated};
 }
 
-function mapCSVDataToGames(csvData: string[]): Game[] {
+function getSetScore(score: string): number {
+    return parseInt(score) || 0;
+}
+
+function mapGamesCSVToGames(csvData: string[]): Game[] {
     // Each 2 rows represent a game
     // The CSV data is formatted as follows:
     //  time, court, team name, player1, player2, player3, player4, set1 score, set2 score
@@ -37,8 +49,8 @@ function mapCSVDataToGames(csvData: string[]): Game[] {
         const team1Players = [t1_player1, t1_player2, t1_player3, t1_player4].filter(player => player !== '');
         const team2Players = [t2_player1, t2_player2, t2_player3, t2_player4].filter(player => player !== '');
         const sets = [
-            { team1Score: parseInt(t1_set1), team2Score: parseInt(t2_set1) },
-            { team1Score: parseInt(t1_set2), team2Score: parseInt(t2_set2) }
+            { team1Score: getSetScore(t1_set1), team2Score: getSetScore(t2_set1) },
+            { team1Score: getSetScore(t1_set2), team2Score: getSetScore(t2_set2) }
         ]
         
         games.push({
@@ -55,36 +67,25 @@ function mapCSVDataToGames(csvData: string[]): Game[] {
     return games;
 }
 
-export async function getGames(): Promise<Game[]> {
-    const csvData = await loadCSVData(GAMES_CSV_URL);
-    return mapCSVDataToGames(csvData);
+export async function getGames() {
+    const {rows: csvData, lastUpdated} = await loadCSVData(GAMES_CSV_URL);
+    return {games: mapGamesCSVToGames(csvData), lastUpdated};
 }
 
-export async function getGamesFor(player: string): Promise<Game[]> {
-    const csvData = await loadCSVData(GAMES_CSV_URL);
-    const games = mapCSVDataToGames(csvData);
-    return games.filter(game => game.team1Players.includes(player) || game.team2Players.includes(player));
+export async function getGamesFor(player: string) {
+    const {rows: csvData, lastUpdated} = await loadCSVData(GAMES_CSV_URL);
+    const games = mapGamesCSVToGames(csvData).filter(game => game.team1Players.includes(player) || game.team2Players.includes(player));
+    return {games, lastUpdated};
 }
 
-export async function getTeamScores(): Promise<{ [team: string]: number }> {
-    const totalWins:{ [team: string]: number } = {};
-    
-    const games = await getGames();
-    for (const game of games) {
-        for (const set of game.sets) {
-            if (set.team1Score >= 21 || set.team2Score >= 21) {
-                if (set.team1Score > set.team2Score) {
-                    totalWins[game.team1Name] = (totalWins[game.team1Name] || 0) + 1;
-                } else {
-                    totalWins[game.team2Name] = (totalWins[game.team2Name] || 0) + 1;
-                }
-            }
-        }
-    }
-
-    return totalWins;
+export async function getTeamScores(): Promise<{ [team: string]: number }> {    
+    // Return mock data for now
+    return {
+        "Team One": 0,
+        "Team Two": 0,
+    };
 }
 
 export async function getPlayers(): Promise<string[]> {
-    return mockPlayers;
+    return players;
 }

@@ -1,0 +1,36 @@
+.game {
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.gameHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+}
+
+.playersContainer {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    text-wrap: balance;
+    padding: 10px;
+    width: 100%;
+}
+
+.players {
+    text-align: center;
+    text-wrap: balance;
+    flex: 1
+}
+
+.scores {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px;
+    width: 100%;
+}

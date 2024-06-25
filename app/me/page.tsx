@@ -10,12 +10,13 @@ export default function Me() {
         typeof window !== 'undefined' ? localStorage.getItem("player") || "" : ""
     );
     const [games, setGames] = useState<GameType[]>([]);
+    const [lastUpdated, setLastUpdated] = useState("");
 
     // When the player name changes, 
     // save it to local storage and fetch the player's data
     useEffect(() => {
         localStorage.setItem("player", player);
-        getGamesFor(player).then((games) => setGames(games));
+        getGamesFor(player).then(({games, lastUpdated}) => setGames(games));
     }, [player]);
 
     return (
@@ -23,13 +24,18 @@ export default function Me() {
             <PlayerPicker value={player} onChange={setPlayer}/>
             <div>
                 <h2>Your Games</h2>
-                <table style={{borderCollapse: 'collapse', width: '100%', textAlign: 'center'}}>
+                <div>
                     {
                         games.map((game, i) => (
                             <Game key={i} {...game} />
                         ))
                     }
-                </table>
+                </div>
+                {lastUpdated && (
+                    <div style={{color: "lightgray"}}>
+                        Last updated: {lastUpdated}
+                    </div>
+                )}
             </div>
         </div>
     );
