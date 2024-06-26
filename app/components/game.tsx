@@ -15,6 +15,7 @@ export default function Game({ team1Players, team2Players, sets, court, time }: 
 
             <div className={styles.playersContainer}>
                 <div>{team1Players.join(", ")}</div>
+                <div>vs</div>
                 <div>{team2Players.join(", ")}</div>
             </div>
             

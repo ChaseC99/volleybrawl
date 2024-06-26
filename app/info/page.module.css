@@ -4,6 +4,7 @@
     align-items: center;
     padding: 10px;
     color: white;    
+    margin-bottom: 16px;
 }
 
 .header h1 {
@@ -31,21 +32,22 @@
     border-radius: 8px;
     border: 1px solid white;
     padding: 10px;
-    margin: 10px;
+    margin: 24px 10px;
 }
 
 .infoBody {
     padding: 12px;
+    margin-top: 24px;
 }
 
 .whatToBringContainer {
-    margin: 10px 0;
+    margin: 24px 0;
     padding: 10px; 
 }
 
 .whatToBring {
-    padding: 10px;
     columns: 2;
     column-gap: 20px;
     list-style: none;
+    padding: 10px 0;
 }

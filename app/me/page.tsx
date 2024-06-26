@@ -31,7 +31,7 @@ export default function Me() {
 
                 {
                     lastUpdated && (
-                        <div style={{color: "lightgray", textAlign: "center"}}>
+                        <div style={{color: "lightgray", textAlign: "center", marginTop: 24}}>
                             Last updated: {lastUpdated}
                         </div>
                     )
