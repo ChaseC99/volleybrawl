@@ -12,3 +12,8 @@ export type Game = {
     court: number;
     time?: string;
 };
+
+export type TeamScore = {
+    name: string;
+    score: number;
+};

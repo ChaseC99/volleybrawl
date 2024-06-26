@@ -1,15 +1,18 @@
 import GamesList from "../components/games-list";
-import { getGames } from "../data";
+import { Game } from "../types";
 
-export default async function Schedule() {
-    const {games, lastUpdated} = await getGames();
-    
+type ScheduleProps = {
+    games: Game[];
+    lastUpdated: string;
+};
+
+export default async function Schedule({ games, lastUpdated }: ScheduleProps) {
     return (
-        <div style={{padding: "0 8px"}}>
+        <div style={{ padding: "0 8px" }}>
             <GamesList games={games} />
             {
                 lastUpdated && (
-                    <div style={{color: "lightgray", textAlign: "center", marginTop: 24}}>
+                    <div style={{ color: "lightgray", textAlign: "center", marginTop: 24 }}>
                         Last updated: {lastUpdated}
                     </div>
                 )

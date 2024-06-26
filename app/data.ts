@@ -1,4 +1,4 @@
-import { Game } from "./types";
+import { Game, TeamScore } from "./types";
 
 const GAMES_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=1316465651&single=true&output=csv';
 const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=586711085&single=true&output=csv';
@@ -18,7 +18,7 @@ async function loadCSVData(url: string, ignoreHeader: boolean = true) {
 
     // Get the last updated time stamp
     // This the last element in the header row
-    const lastUpdated = rows[0].split(',').pop();
+    const lastUpdated = rows[0].split(',').pop() || "";
 
     if (ignoreHeader) {
         // Ignore the first row (header)
@@ -78,12 +78,23 @@ export async function getGamesFor(player: string) {
     return {games, lastUpdated};
 }
 
-export async function getTeamScores(): Promise<{ [team: string]: number }> {    
-    // Return mock data for now
-    return {
-        "Team One": 0,
-        "Team Two": 0,
-    };
+export function getTeamScores(games: Game[]): [TeamScore, TeamScore] {    
+    // Get team names from the games
+    const team1Name = games[0].team1Name;
+    const team2Name = games[0].team2Name;
+
+    // Get the total wins for each team
+    // Only count sets where a team won by 2 points and scored at least 21 points
+    const totalWins = games.reduce(([team1Wins, team2Wins], game) => {
+        const team1Won = game.sets.filter(({ team1Score, team2Score }) => team1Score > team2Score + 1 && team1Score >= 21).length;
+        const team2Won = game.sets.filter(({ team1Score, team2Score }) => team2Score > team1Score + 1 && team2Score >= 21).length;
+        return [team1Wins + team1Won, team2Wins + team2Won];
+    }, [0, 0]);
+    
+    return [
+        {name: team1Name, score: totalWins[0]},
+        {name: team2Name, score: totalWins[1]},
+    ];
 }
 
 export function getPlayers(): string[] {

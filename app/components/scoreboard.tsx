@@ -1,13 +1,14 @@
 import React from 'react';
 import styles from './scoreboard.module.css';
-import { getTeamScores } from '../data';
+import { TeamScore } from '../types';
 
-export default async function Scoreboard() {
-    const teamScores = Object.entries(await getTeamScores());
-    const teamAName = teamScores[0][0];
-    const teamAScore = teamScores[0][1];
-    const teamBName = teamScores[1][0];
-    const teamBScore = teamScores[1][1];
+type ScoreboardProps = {
+    teamScores: [TeamScore, TeamScore];
+};
+
+export default function Scoreboard({ teamScores }: ScoreboardProps) {;
+    const { name: teamAName, score: teamAScore } = teamScores[0];
+    const { name: teamBName, score: teamBScore } = teamScores[1];
 
     return (
         <div className={styles.scoreboardContainer}>
