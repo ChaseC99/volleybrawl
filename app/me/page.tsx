@@ -4,6 +4,7 @@ import PlayerPicker from "../components/player-picker";
 import { getGamesFor } from "../data";
 import { Game as GameType } from "../types";
 import GamesList from "../components/games-list";
+import GameListLoading from "../components/games-list-loading";
 
 export default function Me() {
     const [player, setPlayer] = useState(
@@ -26,10 +27,15 @@ export default function Me() {
         <div style={{ marginBottom: 100, margin: 12 }}>
             <PlayerPicker value={player} onChange={setPlayer} />
             {
-                games.length > 0 && (
+                player && (
                     <div style={{ marginTop: 24 }}>
                         <h2>Your Games</h2>
-                        <GamesList games={games} />
+                        {
+                            games.length === 0 ? (
+                                <GameListLoading count={4}/>
+                            ) : <GamesList games={games} />
+                        }
+                        
                         {
                             lastUpdated && (
                                 <div style={{ color: "lightgray", textAlign: "center", marginTop: 24 }}>
