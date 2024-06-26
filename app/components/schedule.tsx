@@ -13,7 +13,7 @@ export default function Schedule({ games, lastUpdated, loading }: ScheduleProps)
     if (loading) {
         return (
             <div style={{ padding: "0 8px" }}>
-                <GameListLoading />;
+                <GameListLoading />
             </div>
         );
     }
