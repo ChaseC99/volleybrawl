@@ -6,12 +6,16 @@ export default function Info() {
     return (
         <div className={styles.infoPage}>
             <div className={styles.header}>
-                <h1>
+                <h1>Volleybrawl</h1>
+                <div className={styles.datetime}>
                     <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
-                    Volleybrawl
+                    <div>
+                        <p>9am - 4pm</p>    
+                        <p>Saturday, June 29</p>
+                    </div>
                     <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
-                </h1>
-                <p>Saturday, June 29 | 9am - 4pm</p>
+                </div>
+
             </div>
 
             <a
