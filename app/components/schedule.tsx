@@ -11,7 +11,11 @@ type ScheduleProps = {
 
 export default function Schedule({ games, lastUpdated, loading }: ScheduleProps) {
     if (loading) {
-        return <GameListLoading />;
+        return (
+            <div style={{ padding: "0 8px" }}>
+                <GameListLoading />;
+            </div>
+        );
     }
     
     return (
