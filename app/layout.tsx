@@ -18,7 +18,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        {children}
+        <div style={{marginBottom: 75}}>
+          {children}
+        </div>
         <TabBar />
       </body>
     </html>

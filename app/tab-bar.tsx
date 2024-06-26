@@ -2,7 +2,7 @@
 import * as React from 'react';
 import BottomNavigation from '@mui/material/BottomNavigation';
 import BottomNavigationAction from '@mui/material/BottomNavigationAction';
-import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
+import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import SportsVolleyballIcon from '@mui/icons-material/SportsVolleyball';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,9 +22,9 @@ export default function TabBar() {
                 onChange={handleChange}
             >
                 <BottomNavigationAction
-                    label="Schedule"
-                    value="/schedule"
-                    icon={<CalendarMonthIcon />}
+                    label="Info"
+                    value="/info"
+                    icon={<InfoOutlinedIcon />}
                 />
                 <BottomNavigationAction
                     label="Volleybrawl"

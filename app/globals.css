@@ -100,6 +100,12 @@ td {
   padding: 8px;
 }
 
+li {
+  list-style-position: outside;
+  margin-left: 1em;
+}
+
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;

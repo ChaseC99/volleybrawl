@@ -1,0 +1,25 @@
+.collapsible {
+    padding: 10px;
+    border: white 1px solid;
+    cursor: pointer;
+}
+
+.collapsibleBar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.collapsibleContent {
+    padding: 10px 0;
+}
+
+.roundedTop {
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+}
+
+.roundedBottom {
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}

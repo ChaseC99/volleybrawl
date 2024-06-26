@@ -1,0 +1,51 @@
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    color: white;    
+}
+
+.header h1 {
+    display: flex;
+    align-items: center;
+    font-size: 3em;
+}
+
+.headerLogo {
+    width: 50px;
+    height: 50px;
+    margin: 10px;
+}
+
+.eventInfo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.locationContainer {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border-radius: 8px;
+    border: 1px solid white;
+    padding: 10px;
+    margin: 10px;
+}
+
+.infoBody {
+    padding: 12px;
+}
+
+.whatToBringContainer {
+    margin: 10px 0;
+    padding: 10px; 
+}
+
+.whatToBring {
+    padding: 10px;
+    columns: 2;
+    column-gap: 20px;
+    list-style: none;
+}
