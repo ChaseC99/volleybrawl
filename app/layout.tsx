@@ -8,6 +8,10 @@ const inter = Inter({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Volleybrawl",
   description: "Let's ball",
+  appleWebApp: {
+    capable: true,
+    statusBarStyle: "black-translucent"
+  }
 };
 
 export default function RootLayout({
