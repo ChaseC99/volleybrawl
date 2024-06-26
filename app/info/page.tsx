@@ -38,7 +38,7 @@ export default function Info() {
                 <Collapsible title="Court Setup">
                     <ul>
                         <li>4v4: full court size</li>
-                        <li>3v3 and 2v2: small 'doubles' court size</li>
+                        <li>{"3v3 and 2v2: small 'doubles' court size"}</li>
                     </ul>
                 </Collapsible>
 
@@ -46,16 +46,16 @@ export default function Info() {
                     <p>Simple (not enforced, but strongly encouraged)</p>
                     <ul>
                         <li>Coed Game == Coed Height</li>
-                        <li>Men's Game == Men's Height</li>
-                        <li>Women's Game == Women's Height</li>
+                        <li>{"Men's Game == Men's Height"}</li>
+                        <li>{"Women's Game == Women's Height"}</li>
                     </ul>
                 </Collapsible>
 
                 <Collapsible title="Game Rules">
                     <div>
-                        <p>There's a broad range of skill levels amongst everyone, so the recommendation is that you hold yourself to your own standards/expectations when it comes to calls for doubles, lift, net touches, etc.</p>
+                        <p>{"There's a broad range of skill levels amongst everyone, so the recommendation is that you hold yourself to your own standards/expectations when it comes to calls for doubles, lift, net touches, etc."}</p>
                         <br />
-                        <p>Might be a good idea to go over expectations (e.g. open hand receives) before each match, especially if you think it's going to be a competitive game.</p>
+                        <p>{"Might be a good idea to go over expectations (e.g. open hand receives) before each match, especially if you think it's going to be a competitive game."}</p>
                         <br />
                         <p>When in doubt, you can always redo a point 🙂</p>
                     </div>
@@ -64,12 +64,12 @@ export default function Info() {
                 <Collapsible title="House Rules!">
                     <div>
                         <p><strong>No touch ace == Steal a point</strong></p>
-                        <p>If you get an ace where the other team doesn't even touch the ball before the ball touches the ground, not only do you get a point, but the other team LOSES a point.</p>
+                        <p>{"If you get an ace where the other team doesn't even touch the ball before the ball touches the ground, not only do you get a point, but the other team LOSES a point."}</p>
                     </div>
                     <br />
                     <div>
                         <p><strong>Give up the ball == Give up the point</strong></p>
-                        <p>Let's say you just won a point and the ball is on your side of the court. If for some reason you roll/toss/kick the ball to the other side of the court, the previous point is voided and the other team serves. (The other team does not win a point though).</p>
+                        <p>{"Let's say you just won a point and the ball is on your side of the court. If for some reason you roll/toss/kick the ball to the other side of the court, the previous point is voided and the other team serves. (The other team does not win a point though)."}</p>
                     </div>
                 </Collapsible>
 
