@@ -1,4 +1,4 @@
-import Game from "../components/game";
+import GamesList from "../components/games-list";
 import { getGames } from "../data";
 
 export default async function Schedule() {
@@ -6,14 +6,7 @@ export default async function Schedule() {
     
     return (
         <div style={{marginBottom: 100}}>
-            
-            <div style={{display: "flex", gap: 12, flexDirection: "column", margin: "16px 8px"}}>
-                {
-                    games.map((game, i) => (
-                        <Game key={i} {...game} />
-                    ))
-                }
-            </div>
+            <GamesList games={games} />
             {
                 lastUpdated && (
                     <div style={{color: "lightgray", textAlign: "center"}}>

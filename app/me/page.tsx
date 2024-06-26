@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import PlayerPicker from "../components/player-picker";
 import { getGamesFor } from "../data";
 import { Game as GameType } from "../types";
-import Game from "../components/game";
+import GamesList from "../components/games-list";
 
 export default function Me() {
     const [player, setPlayer] = useState(
@@ -16,7 +16,10 @@ export default function Me() {
     // save it to local storage and fetch the player's data
     useEffect(() => {
         localStorage.setItem("player", player);
-        getGamesFor(player).then(({games, lastUpdated}) => setGames(games));
+        getGamesFor(player).then(({games, lastUpdated}) => {
+            setGames(games)
+            setLastUpdated(lastUpdated || "");
+        });
     }, [player]);
 
     return (
@@ -24,18 +27,15 @@ export default function Me() {
             <PlayerPicker value={player} onChange={setPlayer}/>
             <div>
                 <h2>Your Games</h2>
-                <div>
-                    {
-                        games.map((game, i) => (
-                            <Game key={i} {...game} />
-                        ))
-                    }
-                </div>
-                {lastUpdated && (
-                    <div style={{color: "lightgray"}}>
-                        Last updated: {lastUpdated}
-                    </div>
-                )}
+                <GamesList games={games} />
+
+                {
+                    lastUpdated && (
+                        <div style={{color: "lightgray", textAlign: "center"}}>
+                            Last updated: {lastUpdated}
+                        </div>
+                    )
+                }
             </div>
         </div>
     );
