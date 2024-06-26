@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import TabBar from "./tab-bar";
@@ -13,6 +13,10 @@ export const metadata: Metadata = {
     statusBarStyle: "black-translucent"
   }
 };
+
+export const viewport: Viewport = {
+  themeColor: '#1e2333',
+}
 
 export default function RootLayout({
   children,
