@@ -14,9 +14,13 @@ export default function Game({ team1Players, team2Players, sets, court, time }: 
             </div>
 
             <div className={styles.playersContainer}>
-                <div>{team1Players.join(", ")}</div>
-                <div>vs</div>
-                <div>{team2Players.join(", ")}</div>
+                <div className={styles.players}>
+                    {team1Players.join(", ")}
+                </div>
+                <div style={{margin: "0px 12px"}}>|</div>
+                <div className={styles.players}>
+                    {team2Players.join(", ")}
+                </div>
             </div>
             
 

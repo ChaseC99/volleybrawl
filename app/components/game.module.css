@@ -3,7 +3,10 @@
     flex-direction: column;
     width: 100%;    
     border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #1e1e1e;
+    border: 2px solid #444;
+    border-radius: 10px;
 }
 
 .gameHeader {
@@ -11,11 +14,14 @@
     justify-content: space-between;
     align-items: center;
     padding: 10px;
+    font-weight: bold;
+    color: gray;
 }
 
 .playersContainer {
     display: flex;
     justify-content: space-evenly;
+    align-items: center;
     text-align: center;
     text-wrap: balance;
     padding: 10px;
@@ -25,7 +31,7 @@
 .players {
     text-align: center;
     text-wrap: balance;
-    flex: 1
+    flex: 1;
 }
 
 .scores {
