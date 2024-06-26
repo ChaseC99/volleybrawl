@@ -11,7 +11,6 @@ export default function GameListLoading({count = 8}: GameListLoadingProps) {
             width="100%" height={100}  
             sx={{ 
                 bgcolor: '#1e1e1e;',
-                border: "2px solid #444",
                 borderRadius: "10px",
             }}
         />
