@@ -9,6 +9,7 @@ export default function Info() {
                 <h1>
                     <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
                     Volleybrawl
+                    <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
                 </h1>
                 <p>Saturday, June 29 | 9am - 4pm</p>
             </div>
