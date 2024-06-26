@@ -86,6 +86,6 @@ export async function getTeamScores(): Promise<{ [team: string]: number }> {
     };
 }
 
-export async function getPlayers(): Promise<string[]> {
+export function getPlayers(): string[] {
     return players;
 }

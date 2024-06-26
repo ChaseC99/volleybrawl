@@ -16,27 +16,30 @@ export default function Me() {
     // save it to local storage and fetch the player's data
     useEffect(() => {
         localStorage.setItem("player", player);
-        getGamesFor(player).then(({games, lastUpdated}) => {
+        getGamesFor(player).then(({ games, lastUpdated }) => {
             setGames(games)
             setLastUpdated(lastUpdated || "");
         });
     }, [player]);
 
     return (
-        <div style={{marginBottom: 100}}>
-            <PlayerPicker value={player} onChange={setPlayer}/>
-            <div>
-                <h2>Your Games</h2>
-                <GamesList games={games} />
-
-                {
-                    lastUpdated && (
-                        <div style={{color: "lightgray", textAlign: "center", marginTop: 24}}>
-                            Last updated: {lastUpdated}
-                        </div>
-                    )
-                }
-            </div>
+        <div style={{ marginBottom: 100, margin: 12 }}>
+            <PlayerPicker value={player} onChange={setPlayer} />
+            {
+                games.length > 0 && (
+                    <div style={{ marginTop: 24 }}>
+                        <h2>Your Games</h2>
+                        <GamesList games={games} />
+                        {
+                            lastUpdated && (
+                                <div style={{ color: "lightgray", textAlign: "center", marginTop: 24 }}>
+                                    Last updated: {lastUpdated}
+                                </div>
+                            )
+                        }
+                    </div>
+                )
+            }
         </div>
     );
 }
