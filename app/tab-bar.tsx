@@ -20,6 +20,11 @@ export default function TabBar() {
             <BottomNavigation
                 value={path}
                 onChange={handleChange}
+                sx={{
+                    "& .Mui-selected, .Mui-selected > svg": {
+                        color: "#f39c12"
+                      }
+                 }}
             >
                 <BottomNavigationAction
                     label="Info"
