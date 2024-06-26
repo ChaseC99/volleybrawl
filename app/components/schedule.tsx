@@ -5,7 +5,7 @@ export default async function Schedule() {
     const {games, lastUpdated} = await getGames();
     
     return (
-        <div>
+        <div style={{padding: "0 8px"}}>
             <GamesList games={games} />
             {
                 lastUpdated && (
