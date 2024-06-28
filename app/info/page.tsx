@@ -1,6 +1,7 @@
 import styles from './page.module.css';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
+import LibraryMusicOutlinedIcon from '@mui/icons-material/LibraryMusicOutlined';
 import Collapsible from '../components/collapsible';
 
 export default function Info() {
@@ -106,16 +107,28 @@ export default function Info() {
                 </ul>
             </div>
 
-            <a
-                className={styles.linkContainer}
-                style={{ justifyContent: 'space-between' }}
-                target="_blank"
-                rel="noopener noreferrer"
-                href='https://docs.google.com/spreadsheets/d/1KXHZcpKK28a0Z0-hCPKLJahMTrDDgxWVwWySM5OY1J0/edit?usp=sharing'
-            >
-                <p>Google Sheets Schedule</p>
-                <OpenInNewIcon />
-            </a>
+            <div>
+                <a
+                    className={styles.linkContainer}
+                    style={{ justifyContent: 'space-between', marginBottom: '12px'}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href='https://open.spotify.com/playlist/7nj68KOKSnECq23LMc4Ok8?si=iOOAEyc_S-m1NmrP_6MOQw&pt=7ee11c9e2c53ea43752aa2a75d935024&pi=w8tR7O93Qfed5'
+                >
+                    <p>Spotify Playlist</p>
+                    <LibraryMusicOutlinedIcon />
+                </a>
+                <a
+                    className={styles.linkContainer}
+                    style={{ justifyContent: 'space-between' }}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href='https://docs.google.com/spreadsheets/d/1KXHZcpKK28a0Z0-hCPKLJahMTrDDgxWVwWySM5OY1J0/edit?usp=sharing'
+                >
+                    <p>Google Sheets Schedule</p>
+                    <OpenInNewIcon />
+                </a>
+            </div>
         </div>
     );
 }
