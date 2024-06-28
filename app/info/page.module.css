@@ -1,11 +1,17 @@
+.infoPage {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    padding: 10px;
+    color: white;
+}
+
 .header {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 10px;
     gap: 20px;
     color: white;    
-    margin-bottom: 8px;
 }
 
 .header h1 {
@@ -34,24 +40,19 @@
     align-items: center;
 }
 
-.locationContainer {
+.linkContainer {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
     border-radius: 8px;
     border: 1px solid white;
     padding: 10px;
-    margin: 24px 10px;
-}
-
-.infoBody {
-    padding: 12px;
-    margin-top: 24px;
 }
 
 .whatToBringContainer {
-    margin: 24px 0;
-    padding: 10px; 
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 8px;
 }
 
 .whatToBring {

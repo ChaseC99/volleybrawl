@@ -1,5 +1,6 @@
 import styles from './page.module.css';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import Collapsible from '../components/collapsible';
 
 export default function Info() {
@@ -10,7 +11,7 @@ export default function Info() {
                 <div className={styles.datetime}>
                     <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
                     <div>
-                        <p>9am - 4pm</p>    
+                        <p>9am - 4pm</p>
                         <p>Saturday, June 29</p>
                     </div>
                     <img src="/volleybrawl.png" alt="Volleybrawl logo" className={styles.headerLogo} />
@@ -19,7 +20,9 @@ export default function Info() {
             </div>
 
             <a
-                className={styles.locationContainer}
+                className={styles.linkContainer}
+                target="_blank"
+                rel="noopener noreferrer"
                 href='https://www.google.com/maps/search/?api=1&query=Kevin%20Moran%20Park'
             >
                 <LocationOnOutlinedIcon />
@@ -86,22 +89,33 @@ export default function Info() {
                         <li>There will also be some individual recognition.</li>
                     </ul>
                 </Collapsible>
-
-                <div className={styles.whatToBringContainer}>
-                    <h2>What to Bring</h2>
-                    <ul className={styles.whatToBring}>
-                        <li>🏐 Volleyball</li>
-                        <li>💦 Plenty of water</li>
-                        <li>🧴 Sunscreen</li>
-                        <li>🍌 Snacks</li>
-                        <li>🧦 Extra socks</li>
-                        <li>🪑 Lawn chairs</li>
-                        <li>⚡️ Energy</li>
-                        <li>🥳 Enthusiasm</li>
-                        <li>😎 Vibes</li>
-                    </ul>
-                </div>
             </div>
+
+            <div className={styles.whatToBringContainer}>
+                <h2>What to Bring</h2>
+                <ul className={styles.whatToBring}>
+                    <li>🏐 Volleyball</li>
+                    <li>💦 Plenty of water</li>
+                    <li>🧴 Sunscreen</li>
+                    <li>🍌 Snacks</li>
+                    <li>🧦 Extra socks</li>
+                    <li>🪑 Lawn chairs</li>
+                    <li>⚡️ Energy</li>
+                    <li>🥳 Enthusiasm</li>
+                    <li>😎 Vibes</li>
+                </ul>
+            </div>
+
+            <a
+                className={styles.linkContainer}
+                style={{ justifyContent: 'space-between' }}
+                target="_blank"
+                rel="noopener noreferrer"
+                href='https://docs.google.com/spreadsheets/d/1KXHZcpKK28a0Z0-hCPKLJahMTrDDgxWVwWySM5OY1J0/edit?usp=sharing'
+            >
+                <p>Google Sheets Schedule</p>
+                <OpenInNewIcon />
+            </a>
         </div>
     );
 }
