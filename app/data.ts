@@ -43,11 +43,12 @@ function mapGamesCSVToGames(csvData: string[]): Game[] {
 
     const games: Game[] = [];
     for (let i = 0; i < csvData.length; i += 2) {
-        const [time, court, team1Name, t1_player1, t1_player2, t1_player3, t1_player4, t1_set1, t1_set2] = csvData[i].split(',');
-        const [, , team2Name, t2_player1, t2_player2, t2_player3, t2_player4, t2_set1, t2_set2] = csvData[i + 1].split(',');
+        const [time, court, team1Name, t1_player1, t1_player2, t1_player3, t1_player4, ref1, t1_set1, t1_set2] = csvData[i].split(',');
+        const [, , team2Name, t2_player1, t2_player2, t2_player3, t2_player4, ref2, t2_set1, t2_set2] = csvData[i + 1].split(',');
         
         const team1Players = [t1_player1, t1_player2, t1_player3, t1_player4].filter(player => player !== '');
         const team2Players = [t2_player1, t2_player2, t2_player3, t2_player4].filter(player => player !== '');
+        const refs = [ref1, ref2] as [string, string];
         const sets = [
             { team1Score: getSetScore(t1_set1), team2Score: getSetScore(t2_set1) },
             { team1Score: getSetScore(t1_set2), team2Score: getSetScore(t2_set2) }
@@ -58,6 +59,7 @@ function mapGamesCSVToGames(csvData: string[]): Game[] {
             team1Name,
             team2Players,
             team2Name,
+            refs,
             sets,
             court: parseInt(court),
             time
@@ -74,7 +76,7 @@ export async function getGames() {
 
 export async function getGamesFor(player: string) {
     const {rows: csvData, lastUpdated} = await loadCSVData(GAMES_CSV_URL);
-    const games = mapGamesCSVToGames(csvData).filter(game => game.team1Players.includes(player) || game.team2Players.includes(player));
+    const games = mapGamesCSVToGames(csvData).filter(game => game.team1Players.includes(player) || game.team2Players.includes(player) || game.refs.includes(player));
     return {games, lastUpdated};
 }
 

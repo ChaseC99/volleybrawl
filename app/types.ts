@@ -11,6 +11,7 @@ export type Game = {
     sets: GameSet[];
     court: number;
     time?: string;
+    refs: [string, string];
 };
 
 export type TeamScore = {

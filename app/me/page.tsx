@@ -29,7 +29,7 @@ export default function Me() {
             {
                 player && (
                     <div style={{ marginTop: 24 }}>
-                        <h2>Your Games</h2>
+                        <h2>Your Schedule</h2>
                         {
                             games.length === 0 ? (
                                 <GameListLoading count={4}/>

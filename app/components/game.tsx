@@ -2,7 +2,7 @@ import React from 'react';
 import styles from './game.module.css';
 import { Game as GameProps } from '../types';
 
-export default function Game({ team1Players, team2Players, sets, court, time }: GameProps) {
+export default function Game({ team1Players, team2Players, refs, sets, court, time }: GameProps) {
     // Filter out sets that are not yet played
     sets = sets.filter(({ team1Score, team2Score }) => team1Score !== 0 || team2Score !== 0);
 
@@ -31,6 +31,10 @@ export default function Game({ team1Players, team2Players, sets, court, time }: 
                     <div>{team2Score}</div>
                 </div>
             ))}
+
+            <div className={styles.refs}>
+                <span>Refs: {refs.join(', ')}</span>
+            </div>
         </div>
     );
 }

@@ -40,3 +40,10 @@
     padding: 10px;
     width: 100%;
 }
+
+.refs {
+    text-align: center;
+    color: gray;
+    width: 100%;
+    padding: 10px;
+}
