@@ -17,4 +17,5 @@ export type Game = {
 export type TeamScore = {
     name: string;
     score: number;
+    totalPoints: number;
 };

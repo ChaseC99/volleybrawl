@@ -7,7 +7,9 @@ import { Game, TeamScore } from "./types";
 
 export default function Home() {
   const [loading, setLoading] = useState(true);
-  const [teamScores, setTeamScores] = useState<[TeamScore, TeamScore]>([{ name: "Team One", score: 0 }, { name: "Team Two", score: 0 }]);
+  const [teamScores, setTeamScores] = useState<[TeamScore, TeamScore]>(
+    [{ name: "Team One", score: 0, totalPoints: 0 }, { name: "Team Two", score: 0, totalPoints: 0 }]
+  );
   const [games, setGames] = useState<Game[]>([]);
   const [lastUpdated, setLastUpdated] = useState("");
 

@@ -92,10 +92,17 @@ export function getTeamScores(games: Game[]): [TeamScore, TeamScore] {
         const team2Won = game.sets.filter(({ team1Score, team2Score }) => team2Score > team1Score + 1 && team2Score >= 21).length;
         return [team1Wins + team1Won, team2Wins + team2Won];
     }, [0, 0]);
+
+    // Get the total points for each team
+    const totalPoints = games.reduce(([team1Points, team2Points], game) => {
+        const team1PointsWon = game.sets.reduce((total, { team1Score }) => total + team1Score, 0);
+        const team2PointsWon = game.sets.reduce((total, { team2Score }) => total + team2Score, 0);
+        return [team1Points + team1PointsWon, team2Points + team2PointsWon];
+    }, [0, 0]);
     
     return [
-        {name: team1Name, score: totalWins[0]},
-        {name: team2Name, score: totalWins[1]},
+        {name: team1Name, score: totalWins[0], totalPoints: totalPoints[0]},
+        {name: team2Name, score: totalWins[1], totalPoints: totalPoints[1]},
     ];
 }
 

@@ -47,6 +47,7 @@
   height: 50%;
   background-color: #fff;
   margin: 0 10px;
+  width: 1px;
   transform: rotate(20deg);
 }
 
@@ -57,4 +58,14 @@
   color: #e74c3c;
   white-space: nowrap;
   text-shadow: 0 0 10px rgba(231, 76, 60, 0.7);
+}
+
+.teamScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.totalPoints {
+  font-weight: bold;
 }
