@@ -8,7 +8,7 @@ export default function GameListLoading({count = 8}: GameListLoadingProps) {
     const gameSkeleton = (
         <Skeleton 
             variant="rounded" 
-            width="100%" height={140}  
+            width="100%" height={220}  
             sx={{ 
                 bgcolor: '#1e1e1e;',
                 borderRadius: "10px",
