@@ -33,6 +33,42 @@ export default function Info() {
                 </div>
             </a>
 
+            <Collapsible title="Teams" roundedTop roundedBottom>
+                <h3>Team One</h3>
+                <ul className={styles.threeColumnList}>
+                    <li>Alex</li>
+                    <li>Ash</li>
+                    <li>Cecilia</li>
+                    <li>Edward</li>
+                    <li>Eugene</li>
+                    <li>Frank</li>
+                    <li>Isabel</li>
+                    <li>Jeff</li>
+                    <li>Juan</li>
+                    <li>Justine</li>
+                    <li>Ray</li>
+                    <li>Susan</li>
+                    <li>Tara</li>
+                </ul>
+                <br />
+                <h3>Blue Brawlled</h3>
+                <ul className={styles.threeColumnList}>
+                    <li>Achinthya</li>
+                    <li>Allison</li>
+                    <li>Ben</li>
+                    <li>Chase</li>
+                    <li>Colina</li>
+                    <li>Constance</li>
+                    <li>David</li>
+                    <li>Devin</li>
+                    <li>Garrick</li>
+                    <li>Grace</li>
+                    <li>Jackie</li>
+                    <li>Tyler</li>
+                    <li>Will</li>
+                </ul>
+            </Collapsible>
+
             <div className={styles.infoBody}>
                 <Collapsible title="Gameplay" roundedTop>
                     <div>
@@ -94,7 +130,7 @@ export default function Info() {
 
             <div className={styles.whatToBringContainer}>
                 <h2>What to Bring</h2>
-                <ul className={styles.whatToBring}>
+                <ul className={styles.twoColumnList}>
                     <li>🏐 Volleyball</li>
                     <li>💦 Plenty of water</li>
                     <li>🧴 Sunscreen</li>

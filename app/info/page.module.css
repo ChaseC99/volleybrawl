@@ -55,8 +55,15 @@
     border-radius: 8px;
 }
 
-.whatToBring {
+.twoColumnList {
     columns: 2;
+    column-gap: 20px;
+    list-style: none;
+    padding: 10px 0;
+}
+
+.threeColumnList {
+    columns: 3;
     column-gap: 20px;
     list-style: none;
     padding: 10px 0;
