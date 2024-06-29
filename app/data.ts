@@ -86,10 +86,10 @@ export function getTeamScores(games: Game[]): [TeamScore, TeamScore] {
     const team2Name = games[0].team2Name;
 
     // Get the total wins for each team
-    // Only count sets where a team won by 2 points and scored at least 21 points
+    // Only count sets where a team won by 2 points and scored at least 15 points
     const totalWins = games.reduce(([team1Wins, team2Wins], game) => {
-        const team1Won = game.sets.filter(({ team1Score, team2Score }) => team1Score > team2Score + 1 && team1Score >= 21).length;
-        const team2Won = game.sets.filter(({ team1Score, team2Score }) => team2Score > team1Score + 1 && team2Score >= 21).length;
+        const team1Won = game.sets.filter(({ team1Score, team2Score }) => team1Score > team2Score + 1 && team1Score >= 15).length;
+        const team2Won = game.sets.filter(({ team1Score, team2Score }) => team2Score > team1Score + 1 && team2Score >= 15).length;
         return [team1Wins + team1Won, team2Wins + team2Won];
     }, [0, 0]);
 
