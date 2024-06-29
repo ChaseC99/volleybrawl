@@ -17,19 +17,22 @@ export default function Game({ team1Players, team2Players, refs, sets, court, ti
                 <div className={styles.players}>
                     {team1Players.join(", ")}
                 </div>
-                <div style={{margin: "0px 12px"}}>|</div>
+                <div style={{ margin: "0px 12px" }}>|</div>
                 <div className={styles.players}>
                     {team2Players.join(", ")}
                 </div>
             </div>
-            
 
             {sets.map(({ team1Score, team2Score }, i) => (
-                <div key={i} className={styles.scores}>
-                    <div>{team1Score}</div>
-                    -
-                    <div>{team2Score}</div>
-                </div>
+                <>
+                    <div key={i} className={styles.scores}>
+                        <div>{team1Score}</div>
+                        -
+                        <div>{team2Score}</div>
+                    </div>
+                    {i !== sets.length - 1 && <div className={styles.divider}></div>}
+                </>
+
             ))}
 
             <div className={styles.refs}>

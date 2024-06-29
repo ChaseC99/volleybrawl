@@ -47,3 +47,11 @@
     width: 100%;
     padding: 10px;
 }
+
+.divider {
+    width: 75%;
+    align-self: center;
+    height: 1px;
+    background-color: #444;
+    margin: 10px 0;
+}
