@@ -25,8 +25,8 @@ export default function Home() {
 
   return (
     <div>
-      <Scoreboard teamScores={teamScores}/>
-      <Schedule games={games} lastUpdated={lastUpdated} loading={loading}/>
+      <Scoreboard teamScores={teamScores} loading={loading}/>
+      <Schedule games={games} lastUpdated={lastUpdated} loading={games.length == 0}/>
     </div> 
   );
 }
