@@ -6,26 +6,28 @@ import { useEffect, useState } from "react";
 import { Game, TeamScore } from "./types";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
-  const [teamScores, setTeamScores] = useState<[TeamScore, TeamScore]>(
-    [{ name: "Team One", score: 0, totalPoints: 0 }, { name: "Team Two", score: 0, totalPoints: 0 }]
+  const [games, setGames] = useState<Game[]>(
+    typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("games") || "[]") as Game[] : []
   );
-  const [games, setGames] = useState<Game[]>([]);
+  const [teamScores, setTeamScores] = useState<[TeamScore, TeamScore]>(
+    games.length > 0 ? getTeamScores(games) :
+    [{ name: "Team One", score: 0, totalPoints: 0 }, { name: "Blue Brawlled", score: 0, totalPoints: 0 }]
+  );
   const [lastUpdated, setLastUpdated] = useState("");
 
   // Fetch team scores and games
   useEffect(() => {
     getGames().then(({ games, lastUpdated }) => {
+      localStorage.setItem("games", JSON.stringify(games));
       setGames(games);
       setLastUpdated(lastUpdated);
       setTeamScores(getTeamScores(games));
-      setLoading(false);
     });
   }, []);
 
   return (
     <div>
-      <Scoreboard teamScores={teamScores} loading={loading}/>
+      <Scoreboard teamScores={teamScores} loading={games.length == 0}/>
       <Schedule games={games} lastUpdated={lastUpdated} loading={games.length == 0}/>
     </div> 
   );

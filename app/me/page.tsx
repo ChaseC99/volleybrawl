@@ -10,7 +10,9 @@ export default function Me() {
     const [player, setPlayer] = useState(
         typeof window !== 'undefined' ? localStorage.getItem("player") || "" : ""
     );
-    const [games, setGames] = useState<GameType[]>([]);
+    const [games, setGames] = useState<GameType[]>(
+        typeof window !== 'undefined' ? JSON.parse(localStorage.getItem("mySchedule") || "[]") as GameType[] : []
+    );
     const [lastUpdated, setLastUpdated] = useState("");
 
     // When the player name changes, 
@@ -18,10 +20,21 @@ export default function Me() {
     useEffect(() => {
         localStorage.setItem("player", player);
         getGamesFor(player).then(({ games, lastUpdated }) => {
+            localStorage.setItem("mySchedule", JSON.stringify(games));
             setGames(games)
             setLastUpdated(lastUpdated || "");
         });
     }, [player]);
+
+    useEffect(() => {
+        if (player) {
+            getGamesFor(player).then(({ games, lastUpdated }) => {
+                localStorage.setItem("mySchedule", JSON.stringify(games));
+                setGames(games)
+                setLastUpdated(lastUpdated || "");
+            });
+        }
+    }, []);
 
     return (
         <div style={{ marginBottom: 100, margin: 12 }}>

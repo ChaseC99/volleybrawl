@@ -1,7 +1,7 @@
+"use client"
 import { Game, TeamScore } from "./types";
 
 const GAMES_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=1316465651&single=true&output=csv';
-const STATS_CSV_URL = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSBfiM_nil5SCqieFb4JldxvmGB6MPvdM-CeQrXKw6jiJmtTHhVvOGhHe33vralOC9hddRo9whadvwQ/pub?gid=586711085&single=true&output=csv';
 
 const players: string[] = [
     "Achinthya", "Alex", "Allison", "Ash", "Ben", "Cecilia", "Chase", "Colina", "Constance", "David", "Devin", "Edward", "Eugene", "Frank", "Garrick", "Grace", "Isabel", "Jackie", "Jeff", "Juan", "Justine", "Ray", "Susan", "Tara", "Tyler", "Will",
