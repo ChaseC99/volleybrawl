@@ -2,6 +2,7 @@ import styles from './page.module.css';
 import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import LibraryMusicOutlinedIcon from '@mui/icons-material/LibraryMusicOutlined';
+import ScoreboardIcon from '@mui/icons-material/Scoreboard';
 import Collapsible from '../components/collapsible';
 
 export default function Info() {
@@ -144,6 +145,16 @@ export default function Info() {
             </div>
 
             <div>
+                <a
+                    className={styles.linkContainer}
+                    style={{ justifyContent: 'space-between', marginBottom: '12px'}}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    href='https://www.rapidtables.com/tools/scoreboard.html'
+                >
+                    <p>Score Keeeper Tool</p>
+                    <ScoreboardIcon />
+                </a>
                 <a
                     className={styles.linkContainer}
                     style={{ justifyContent: 'space-between', marginBottom: '12px'}}
